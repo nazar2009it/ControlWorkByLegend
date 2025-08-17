@@ -1,0 +1,128 @@
+.main{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    h1{
+        margin: 60px auto 40px;
+        color: white;
+        font-size: 36px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .task {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 30px;
+        .remove{
+            gap: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .edit {
+                border: 1px solid #fff;
+                border-radius: 12px;
+                padding: 16px;
+                width: 54px;
+                height: 54px;
+            }
+            .delete{
+                border: 1px solid #fff;
+                border-radius: 12px;
+                padding: 16px;
+                width: 54px;
+                height: 54px;
+            }
+        }
+        p{
+            color: white;
+            border-radius: 12px;
+            border: white 1px solid;
+            width: 440px;
+            height: 54px;
+            margin: 5px 0;
+            border: 1px solid #fff;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+}
+.task-input {
+  color: white;
+  border-radius: 12px;
+  border: 1px solid #fff;
+  width: 440px;
+  height: 54px;
+  margin: 5px 0;
+  padding: 16px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: transparent;
+  outline: none;
+}
+.task-input::placeholder {
+  color: #aaa; /* серый текст Enter a task */
+}
+.task.clone {
+  margin-bottom: 100px; /* вместо обычных 30px */
+}
+.add, .clear, .cancel, .save {
+  border: 1px solid #db00ff;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100px;
+  height: 54px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+ .add:active, .clear:active, .cancel:active, .save:active {
+  border: 1px solid #db00ff;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100px;
+  height: 54px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color:#db00ff ;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: inset 0 0 20px 0 rgba(43, 0, 50, 0.85);
+  
+}
+.add:hover, .clear:hover, .cancel:hover, .save:hover{
+  border: 1px solid #db00ff;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100px;
+  height: 54px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color:#db00ff ;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+.edit:hover img, .delete:hover img {
+  transform: rotate(20deg);
+}
+.add:active, .clear:active {
+  transform: scale(0.98);
+}
+.delete:hover, .edit:hover{
+    background-color: #db00ff;
+}
+.delete:active, .edit:active{
+    background-color: #db00ff;
+    box-shadow: inset 0 0 20px 0 rgba(43, 0, 50, 0.85);
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main">
+        <h1>
+            TO DO
+        </h1>
+        <div class="tasks">
+            <div class="task">
+                <p>Task 1</p>
+                <div class="remove">
+                    <div class="edit">
+                        <img src="../controlproject/images/Edit.png" alt="">
+                    </div>
+                    <div class="delete">
+                        <img src="../controlproject/images/DeleteOutlined.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="task">
+                <p>Task 2</p>
+                 <div class="remove">
+                    <div class="edit">
+                        <img src="../controlproject/images/Edit.png" alt="">
+                    </div>
+                    <div class="delete">
+                        <img src="../controlproject/images/DeleteOutlined.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="task">
+                <p>Task 3</p>
+                 <div class="remove">
+                    <div class="edit">
+                        <img src="../controlproject/images/Edit.png" alt="">
+                    </div>
+                    <div class="delete">
+                        <img src="../controlproject/images/DeleteOutlined.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="task">
+                <p>Task 4</p>
+                 <div class="remove">
+                    <div class="edit">
+                        <img src="../controlproject/images/Edit.png" alt="">
+                    </div>
+                    <div class="delete">
+                        <img src="../controlproject/images/DeleteOutlined.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="task">
+                <p>Task 5</p>
+                 <div class="remove">
+                    <div class="edit">
+                        <img src="../controlproject/images/Edit.png" alt="">
+                    </div>
+                    <div class="delete">
+                        <img src="../controlproject/images/DeleteOutlined.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="task">
+                <p>Task 6</p>
+                <div class="remove">
+                    <div class="edit">
+                        <img src="../controlproject/images/Edit.png" alt="">
+                    </div>
+                    <div class="delete">
+                        <img src="../controlproject/images/DeleteOutlined.png" alt="">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <script>
+  const tasks = document.querySelector(".tasks");
+
+function addDuplicate(button) {
+  const task = button.closest(".task");   
+  const clone = task.cloneNode(true);
+  clone.querySelector(".edit").addEventListener("click", () => addDuplicate(clone.querySelector(".edit")));
+  if (tasks.firstElementChild.dataset.clone === "true") {
+    tasks.removeChild(tasks.firstElementChild);
+  }
+  clone.dataset.clone = "true";
+  tasks.prepend(clone);
+}
+document.querySelectorAll(".edit").forEach(button => {
+  button.addEventListener("click", () => addDuplicate(button));
+});
+function addDuplicate(button) {
+  const task = button.closest(".task");
+  const clone = task.cloneNode(true);
+  const oldText = clone.querySelector("p");
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Enter a task"; // как в макете
+  input.classList.add("task-input");
+  oldText.replaceWith(input);
+  clone.querySelector(".edit").addEventListener("click", () => addDuplicate(clone.querySelector(".edit")));
+  if (tasks.firstElementChild.dataset.clone === "true") {
+    tasks.removeChild(tasks.firstElementChild);
+  }
+  clone.dataset.clone = "true";
+  tasks.prepend(clone);
+  input.focus(); 
+}
+function addDuplicate(button) {
+  const task = button.closest(".task");
+  const clone = task.cloneNode(true);
+  const oldText = clone.querySelector("p");
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Enter a task";
+  input.classList.add("task-input");
+  oldText.replaceWith(input);
+  clone.classList.add("clone");
+  clone.querySelector(".edit").addEventListener("click", () => addDuplicate(clone.querySelector(".edit")));
+  if (tasks.firstElementChild.dataset.clone === "true") {
+    tasks.removeChild(tasks.firstElementChild);
+  }
+
+  clone.dataset.clone = "true";
+  tasks.prepend(clone);
+
+  input.focus();
+}
+function addDuplicate(button) {
+  const task = button.closest(".task");
+  const clone = task.cloneNode(true);
+
+  
+  const oldText = clone.querySelector("p");
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Enter a task";
+  input.classList.add("task-input");
+  oldText.replaceWith(input);
+  clone.classList.add("clone");
+  clone.dataset.clone = "true";
+  const removeBlock = clone.querySelector(".remove");
+  removeBlock.innerHTML = `
+    <div class="add">Add</div>
+    <div class="clear">Clear all</div>
+  `;
+  const origRemove = task.querySelector(".remove");
+  origRemove.innerHTML = `
+    <div class="cancel">Cancel</div>
+    <div class="save">Save</div>
+  `;
+  if (tasks.firstElementChild.dataset.clone === "true") {
+    tasks.removeChild(tasks.firstElementChild);
+  }
+  tasks.prepend(clone);
+
+  input.focus();
+}
+</script>
+
+
+</body>
+</html>
